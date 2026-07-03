@@ -1,0 +1,9 @@
+mkdir Question_2
+cd Question_2
+mkdir -p Project/{Docs,Source,Backup}
+ls -R Project
+touch Project/Docs/plan.txt
+ls -ld Project
+chmod 750 Project
+ls -ld Project
+umask

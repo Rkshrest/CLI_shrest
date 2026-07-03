@@ -1,0 +1,88 @@
+              STORAGE ASSESSMENT REPORT
+      Storage Health Assessment and Documentation
+
+------------------------------------------------------------
+1. Available Storage Devices
+------------------------------------------------------------
+
+Command:
+lsblk
+
+Output:
+
+NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+sda      8:0    0 388.4M  1 disk
+sdb      8:16   0   186M  1 disk
+sdc      8:32   0     4G  0 disk [SWAP]
+sdd      8:48   0     1T  0 disk /mnt/wslg/distro
+                                 /
+
+Observation:
+The 'lsblk' command displayed all available storage devices and partitions. The primary storage device is '/dev/sdd' with a capacity of 1 TB, while '/dev/sdc' is being used as swap space.
+
+------------------------------------------------------------
+2. Mounted File Systems
+------------------------------------------------------------
+
+Commands:
+df -h
+mount
+
+Important Output:
+
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sdd       1007G  2.4G  954G   1% /
+
+Observation:
+The mounted file systems were successfully displayed along with their storage usage. The root filesystem '/dev/sdd' has approximately 1007 GB of storage, of which only about 2.4 GB is currently used, leaving approximately 954 GB available. Several WSL virtual file systems are also mounted.
+
+------------------------------------------------------------
+3. Disk Usage Statistics
+------------------------------------------------------------
+
+Command:
+du -sh .
+
+Output:
+4.0K    .
+
+Observation:
+The current working directory occupies only 4.0 KB of disk space. This indicates that only a small amount of storage is being used for the assignment files created during this experiment.
+
+------------------------------------------------------------
+4. Inode Utilization
+------------------------------------------------------------
+
+Command:
+df -i
+
+Important Output:
+
+Filesystem      Inodes   IUsed    IFree IUse% Mounted on
+/dev/sdd       67108864  53913 67054951    1%
+
+Observation:
+The inode utilization is only 1%, indicating that a large number of inodes are still available. The filesystem has sufficient capacity to create many additional files without running into inode exhaustion.
+
+------------------------------------------------------------
+5. Storage Health Observations
+------------------------------------------------------------
+
+Observation:
+The storage devices and mounted file systems are functioning normally. The primary storage device has a large amount of available free space and very low inode utilization, indicating a healthy storage environment suitable for normal system operation.
+
+------------------------------------------------------------
+6. Recommendations
+------------------------------------------------------------
+
+• Regularly remove unnecessary temporary files.
+• Archive or delete unused files to free storage.
+• Monitor disk usage periodically using 'df -h'.
+• Monitor inode usage using 'df -i'.
+• Enable log rotation to prevent excessive storage consumption.
+
+------------------------------------------------------------
+Conclusion
+------------------------------------------------------------
+
+The storage assessment was successfully completed. The available storage devices, mounted file systems, disk usage, and inode utilization were analyzed. The system has sufficient free storage space and inodes, indicating a healthy storage environment. Regular monitoring and cleanup will help maintain efficient storage utilization and overall system performance.

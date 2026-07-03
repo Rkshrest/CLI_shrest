@@ -1,0 +1,10 @@
+cd ~
+mkdir Question_4
+cd Question_4
+echo "Linux IO Test" > log.txt
+lsof log.txt
+cat log.txt > output.txt
+cat output.txt
+ls nonexistentfile 2> error.txt
+cat error.txt
+ulimit -a

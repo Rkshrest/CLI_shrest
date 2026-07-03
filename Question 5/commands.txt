@@ -1,0 +1,9 @@
+cd ~
+mkdir Question_5
+cd Question_5
+lsblk
+df -h
+df -i
+mount
+du -sh .
+vi Storage_Assessment_Report.txt

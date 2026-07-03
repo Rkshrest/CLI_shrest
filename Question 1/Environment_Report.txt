@@ -1,0 +1,88 @@
+                    ENVIRONMENT REPORT
+                Linux Environment Verification
+
+------------------------------------------------------------
+1. Username
+------------------------------------------------------------
+
+Command:
+whoami
+
+Output:
+shrest_2006
+
+Observation:
+The 'whoami' command displays the username of the currently logged-in user. It confirms that the current user account executing the Linux commands is 'shrest_2006'.
+
+------------------------------------------------------------
+2. User Groups
+------------------------------------------------------------
+
+Command:
+groups
+
+Output:
+shrest_2006 adm cdrom sudo dip plugdev users
+
+Observation:
+The 'groups' command lists all the groups associated with the current user. These groups determine the user's permissions and access rights within the Linux system, such as administrative privileges through the 'sudo' group.
+
+------------------------------------------------------------
+3. Current Shell
+------------------------------------------------------------
+
+Command:
+echo $SHELL
+
+Output:
+/bin/bash
+
+Observation:
+The command displays the default login shell of the current user. The system is using the Bash (Bourne Again Shell), which is the default command-line interpreter in many Linux distributions.
+
+------------------------------------------------------------
+4. Current Working Directory
+------------------------------------------------------------
+
+Command:
+pwd
+
+Output:
+/home/shrest_2006/Question_1
+
+Observation:
+The 'pwd' command prints the absolute path of the current working directory. It confirms that all files related to this assignment are being created inside the 'Question_1' directory.
+
+------------------------------------------------------------
+5. Files and Directories in Workspace
+------------------------------------------------------------
+
+Command:
+ls -la
+
+Output:
+total 8
+drwxr-xr-x 2 shrest_2006 shrest_2006 4096 Jul 3 13:23 .
+drwxr-x--- 9 shrest_2006 shrest_2006 4096 Jul 3 13:23 ..
+
+Observation:
+The 'ls -la' command lists all files and directories, including hidden entries. It also displays permissions, ownership, file size, and modification details of each item in the current workspace.
+
+------------------------------------------------------------
+6. Network Connectivity Verification
+------------------------------------------------------------
+
+Command:
+ping -c 4 google.com
+
+Output:
+4 packets transmitted, 4 received, 0% packet loss
+
+Observation:
+The 'ping' command successfully communicated with Google's server. Since all four packets were transmitted and received with 0% packet loss, the system has an active and stable network connection.
+
+------------------------------------------------------------
+Conclusion
+------------------------------------------------------------
+
+The Linux environment has been successfully verified. The user account, associated groups, current shell, working directory, workspace contents, and network connectivity were all checked successfully. The system is properly configured and ready for further Linux administration tasks

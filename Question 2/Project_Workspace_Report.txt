@@ -1,0 +1,91 @@
+                 PROJECT WORKSPACE REPORT
+             Secure Project Workspace Setup
+
+------------------------------------------------------------
+1. Directory Structure Created
+------------------------------------------------------------
+
+Command:
+mkdir -p Project/{Docs,Source,Backup}
+touch Project/Docs/plan.txt
+ls -R Project
+
+Output:
+Project:
+Backup  Docs  Source
+
+Project/Backup:
+
+Project/Docs:
+plan.txt
+
+Project/Source:
+
+Observation:
+The project workspace was successfully created with three separate subdirectories: Docs, Source, and Backup. A sample file named 'plan.txt' was created inside the Docs directory to represent project documentation.
+
+------------------------------------------------------------
+2. File Permissions Before Modification
+------------------------------------------------------------
+
+Command:
+ls -ld Project
+
+Output:
+drwxr-xr-x 5 shrest_2006 shrest_2006 4096 Jul 3 13:33 Project
+
+Observation:
+The default permissions assigned to the Project directory were rwxr-xr-x (755). This allows the owner full access while the group and others have read and execute permissions.
+
+------------------------------------------------------------
+3. File Permissions After Modification
+------------------------------------------------------------
+
+Command:
+chmod 750 Project
+ls -ld Project
+
+Output:
+drwxr-x--- 5 shrest_2006 shrest_2006 4096 Jul 3 13:33 Project
+
+Observation:
+The permissions were changed to 750 (rwxr-x---). The owner has full access, the group has read and execute permissions, and all access for others has been removed, making the directory more secure.
+
+------------------------------------------------------------
+4. Ownership Details
+------------------------------------------------------------
+
+Command:
+ls -ld Project
+
+Output:
+Owner : shrest_2006
+Group : shrest_2006
+
+Observation:
+The ownership details show that both the owner and group of the Project directory are 'shrest_2006'. This means the current user has complete administrative control over the project workspace.
+
+------------------------------------------------------------
+5. Umask Value
+------------------------------------------------------------
+
+Command:
+umask
+
+Output:
+0022
+
+Observation:
+The current umask value is 0022. It removes write permission for the group and others when new files and directories are created, resulting in secure default permissions.
+
+------------------------------------------------------------
+6. How Permissions Protect Project Data
+------------------------------------------------------------
+
+Linux file permissions control who can read, write, or execute files and directories. Setting the Project directory permissions to 750 ensures that only the owner has full access, members of the owner's group have limited access, and all other users are denied access. This helps protect sensitive project files from unauthorized users.
+
+------------------------------------------------------------
+Conclusion
+------------------------------------------------------------
+
+The secure project workspace was successfully created with an organized directory structure. File permissions were modified from 755 to 750 to improve security, ownership was verified, and the system's umask value was recorded. These configurations help ensure that project data remains protected while allowing controlled access for authorized users.

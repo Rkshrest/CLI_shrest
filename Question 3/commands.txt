@@ -1,0 +1,12 @@
+cd ~
+mkdir Question_3
+cd Question_3
+echo "Linux Lab Assignment" > original.txt
+ln original.txt hardlink.txt
+ln -s original.txt softlink.txt
+ls -li
+stat original.txt
+rm original.txt
+ls -l
+cat hardlink.txt
+cat softlink.txt

@@ -1,0 +1,101 @@
+                    LINK ANALYSIS REPORT
+               File System and Link Analysis
+
+------------------------------------------------------------
+1. File Creation
+------------------------------------------------------------
+
+Command:
+echo "Linux Lab Assignment" > original.txt
+
+Observation:
+The command created a file named 'original.txt' and wrote the text "Linux Lab Assignment" into it. This file was used for creating both hard and symbolic links.
+
+------------------------------------------------------------
+2. Hard Link Creation
+------------------------------------------------------------
+
+Command:
+ln original.txt hardlink.txt
+
+Observation:
+A hard link named 'hardlink.txt' was successfully created. It shares the same inode and data blocks as the original file, making both filenames reference the same physical file.
+
+------------------------------------------------------------
+3. Symbolic Link Creation
+------------------------------------------------------------
+
+Command:
+ln -s original.txt softlink.txt
+
+Observation:
+A symbolic link named 'softlink.txt' was created. Unlike a hard link, it stores the pathname of the original file instead of sharing its inode.
+
+------------------------------------------------------------
+4. Inode Information
+------------------------------------------------------------
+
+Command:
+ls -li
+
+Output:
+
+49398 hardlink.txt
+49398 original.txt
+49403 softlink.txt -> original.txt
+
+Observation:
+The inode number of both 'original.txt' and 'hardlink.txt' is 49398, confirming that they refer to the same physical file. The symbolic link has a different inode number (49403), indicating that it is a separate file pointing to the original.
+
+------------------------------------------------------------
+5. Metadata
+------------------------------------------------------------
+
+Command:
+stat original.txt
+
+Output:
+
+Inode Number : 49398
+File Size    : 21 Bytes
+Permissions  : 0644 (-rw-r--r--)
+Owner        : shrest_2006
+Group        : shrest_2006
+Link Count   : 2
+
+Observation:
+The metadata shows the inode number, permissions, owner, timestamps, file size, and link count. The link count of 2 confirms that the original file and hard link share the same inode.
+
+------------------------------------------------------------
+6. Effect of Deleting the Original File
+------------------------------------------------------------
+
+Command:
+rm original.txt
+ls -l
+cat hardlink.txt
+cat softlink.txt
+
+Observation:
+After deleting 'original.txt', the hard link continued to work because it still referenced the same inode containing the file data. The symbolic link became broken because it pointed to a file that no longer existed.
+
+------------------------------------------------------------
+7. Comparison Between Hard Link and Symbolic Link
+------------------------------------------------------------
+
+Hard Link
+• Shares the same inode as the original file.
+• Continues to work after the original filename is deleted.
+• Cannot span different file systems.
+
+Symbolic Link
+• Has its own inode.
+• Stores the pathname of the original file.
+• Becomes invalid if the original file is deleted.
+• Can point to files located on different file systems.
+
+------------------------------------------------------------
+Conclusion
+------------------------------------------------------------
+
+This experiment demonstrated the fundamental difference between hard links and symbolic links in Linux. Hard links share the same inode and remain functional even after the original filename is deleted, whereas symbolic links act as pointers and become broken when the target file is removed. This illustrates how Linux manages file references at the filesystem level.

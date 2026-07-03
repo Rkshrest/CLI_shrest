@@ -1,0 +1,8 @@
+mkdir Question_1
+cd Question_1
+whoami
+groups
+echo $SHELL
+pwd
+ls -la
+ping -c 4 google.com
